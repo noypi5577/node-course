@@ -35,7 +35,7 @@ app.use(middleware.requireAuthentication)
  
 
 app.listen(port,()=>{
-    console.log('starting to listen to:'+ port);
+    console.log('starting to listen to port :'+ port);
 
 })
 module.exports={app}
