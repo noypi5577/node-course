@@ -109,7 +109,7 @@ UserSchema.methods.generateAuthToken= function() {
         var User= this;
         return User.findOne({email}).then((user)=>{
             if(!user){
-                return  Promise.reject()
+                return Promise.reject('wrong password');
             }
             return new Promise((resolve,reject)=>{
                 bcrypt.compare(password,user.password,(err,res)=>{

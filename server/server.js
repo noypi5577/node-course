@@ -18,18 +18,15 @@ const port= process.env.PORT || 3000
 var app= express();
 app.use(bodyParser.json());
 
-app.use(middleware.requireAuthentication)
- //app.use("/users/*",middleware.systemManager)
- //app.all( "/users" , middleware.clerkForman);
-// app.use("/customer event history kitchen order roles shower status",middleware.clerkForman)
- app.use("/customer",middleware.clerkForman)
- app.use("/event",middleware.clerkForman)
- app.use("/history",middleware.clerkForman)
- app.use("/kitchen",middleware.clerkForman)
- app.use("/order",middleware.clerkForman)
- app.use("/roles",middleware.clerkForman)
- app.use("/shower",middleware.clerkForman)
- app.use("/status",middleware.clerkForman)
+
+ app.use("/customer",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/event",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/history",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/kitchen",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/order",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/roles",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/shower",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/status",middleware.requireAuthentication,middleware.clerkForman)
  
  
  
