@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/MarbleApp',
     if(err){
         return console.log(err);
     }
-    console.log('conected to the url address')
+    console.log('123 conected to the url address'+ client)
 });
 
 
