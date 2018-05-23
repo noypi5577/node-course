@@ -3,7 +3,7 @@ const{ObjectID}=require('mongodb')
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const bcrypt= require('bcrypt');
-
+const {config}= require('./../server/config/config')
 
 
 var UserSchema= new mongoose.Schema(
@@ -92,7 +92,6 @@ UserSchema.pre('save', function(next){
 
 });
 UserSchema.methods.generateAuthToken= function() {  
-    process.env.JWT_SECRET="1234567890" 
     var user= this;
     var access='auth';
     var token = jwt.sign({_id: user._id,access},process.env.JWT_SECRET).toString();
@@ -126,7 +125,7 @@ UserSchema.methods.generateAuthToken= function() {
         var User=this;
         var decoded;
         try{
-            decoded= jwt.verify(token,"1234567890" ) 
+            decoded= jwt.verify(token,process.env.JWT_SECRET ) 
             if(!decoded){
                 return reject('token or secret_key is invalid');
             }

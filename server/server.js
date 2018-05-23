@@ -8,6 +8,9 @@ const {Order}=require('./../models/Order');
 const {Shower}= require('./../models/Shower');
 const{Kitchen}=require('./../models/Kitchen');
 const {middleware}=require('./../middlewareFunction/middleware')
+require('./config/config')
+
+console.log(process.env.JWT_SECRET)
 
 
  
@@ -24,7 +27,7 @@ app.use(bodyParser.json());
  app.use("/history",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/kitchen",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/order",middleware.requireAuthentication,middleware.clerkForman)
- //app.use("/roles",middleware.requireAuthentication,middleware.clerkForman)
+ app.use("/roles",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/shower",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/status",middleware.requireAuthentication,middleware.clerkForman)
  
