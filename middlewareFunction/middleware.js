@@ -23,7 +23,7 @@ var middleware={
     },
 
     systemManager:function (req,res,next){
-        console.log(req.userRole)
+        console.log("user role",req.userRole)
         if(req.userRole!="system manager"){
          return res.status(400).send("this user is not autherized for this action")
          }else{ 

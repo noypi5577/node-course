@@ -7,14 +7,11 @@ const {User}= require('./../models/User');
 const {mongoose}= require('./../db/mongoose');
 const{generateAuthToken}=require('./../models/User')
 const{findByCredentials}=require('./../models/User');
-//const {authenticateAdmin}= require('./../middlewear/authenticateAdmin')
-//const {authenticateClerkForman}= require('./../middlewear/authenticateClerkForman')
-//const {authenticate}=require('./../middlewear/authenticate')
-//const {systemManager}=('./../middlewear/systemManager.js')
 const {middleware}=require('./../middlewareFunction/middleware')
 const ObjectId= mongoose.Types.ObjectId;
+//[middleware.requireAuthentication,middleware.systemManager]
 
-app.post('/users',middleware.systemManager, async(req,res)=>{
+app.post('/users', async(req,res)=>{
     try{
          
         var body =req.body
@@ -43,7 +40,7 @@ app.post('/users_login', async(req,res)=>{
         }
 });
 
-app.get('/users',middleware.clerkForman,async(req,res)=>{
+app.get('/users',[middleware.requireAuthentication,middleware.clerkForman],async(req,res)=>{
    try{
         const queries=Object.keys(req.query)
         if(queries.length>1){

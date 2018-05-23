@@ -24,7 +24,7 @@ app.use(bodyParser.json());
  app.use("/history",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/kitchen",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/order",middleware.requireAuthentication,middleware.clerkForman)
- app.use("/roles",middleware.requireAuthentication,middleware.clerkForman)
+ //app.use("/roles",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/shower",middleware.requireAuthentication,middleware.clerkForman)
  app.use("/status",middleware.requireAuthentication,middleware.clerkForman)
  
