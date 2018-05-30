@@ -1,0 +1,25 @@
+{
+  "name": "marvel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "mongoimport": "^1.0.6",
+    "mongoose": "^5.0.14",
+    "validator": "^9.4.1"
+  },
+  "engines": {
+    "node": "8.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "produc": " NODE_ENV= 'production' && set | grep NODE_ENV && export NODE_ENV && node server/server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}  
